@@ -6,3 +6,9 @@
     width: 75vw;
     padding: 20px;
 }
+
+.Message {
+	background-color: 0ef712;
+	font-size: 25px;
+	font-weight: bold;
+}

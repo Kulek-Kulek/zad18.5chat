@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './MessageList.css';
 
+
 const Message = props => (
   <div className={styles.Message}>
     <strong>{props.from} :</strong>

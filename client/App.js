@@ -3,6 +3,7 @@ import io from 'socket.io-client';
 
 import styles from './App.css';
 
+
 import MessageForm from './MessageForm';
 import MessageList from './MessageList';
 import UsersList from './UsersList';
@@ -17,24 +18,24 @@ class App extends Component {
     this.state = {users: [], messages: [], text: '', name: ''};
   }
   componentDidMount() {
-  socket.on('message', message => this.messageReceive(message));
-  socket.on('update', ({users}) => this.chatUpdate(users));
+    socket.on('message', message => this.messageReceive(message));
+    socket.on('update', ({users}) => this.chatUpdate(users));
   }
   messageReceive(message) {
-  const messages = [message, ...this.state.messages];
-  this.setState({messages});
+    const messages = [message, ...this.state.messages];
+    this.setState({messages});
   }
   chatUpdate(users) {
-  this.setState({users});
+    this.setState({users});
   }
   handleMessageSubmit(message) {
-  const messages = [message, ...this.state.messages];
-  this.setState({messages});
-  socket.emit('message', message);
+    const messages = [message, ...this.state.messages];
+    this.setState({messages});
+    socket.emit('message', message);
   }
   handleUserSubmit(name) {
-  this.setState({name});
-  socket.emit('join', name);
+    this.setState({name});
+    socket.emit('join', name);
   }
   render() {
     return this.state.name !== '' ? this.renderLayout() : this.renderUserForm();
@@ -42,7 +43,7 @@ class App extends Component {
   render() {
     return this.state.name !== '' ? (
       this.renderLayout()
-    ) : this.renderUserForm() // zaimplementowane w późniejszej części
+    ) : this.renderUserForm() 
   }
 
   renderLayout() {
